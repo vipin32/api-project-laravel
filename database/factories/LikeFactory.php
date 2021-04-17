@@ -22,7 +22,14 @@ class LikeFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'user_id' => function() {
+                return \App\Models\User::all()->random();
+            },
+            
+            'reply_id' => function() {
+                return \App\Models\Reply::all()->random();
+            }
+
         ];
     }
 }
