@@ -16,8 +16,7 @@ class CreateRepliesTable extends Migration
         Schema::create('replies', function (Blueprint $table) {
             $table->id();
             $table->text('body');
-
-            $table->unsignedBigInteger('question_id');
+            $table->unsignedBigInteger('question_id');  //bigInteger coz Foreign Key Constraints error
             $table->unsignedBigInteger('user_id');
             
             $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade'); //if question is deleted :Delete all replies related to that question

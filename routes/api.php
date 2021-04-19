@@ -5,6 +5,7 @@
 
 Route::resource('/question', '\App\Http\Controllers\QuestionController');
 Route::resource('/category', '\App\Http\Controllers\CategoryController');
+Route::apiResource('/question/{question}/reply', '\App\Http\Controllers\ReplyController');
 // use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\Route;
 
