@@ -4,6 +4,7 @@
 // Route::resource('/question', [QuestionController::class]);
 
 Route::resource('/question', '\App\Http\Controllers\QuestionController');
+Route::resource('/category', '\App\Http\Controllers\CategoryController');
 // use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\Route;
 
