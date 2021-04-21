@@ -14,6 +14,13 @@ use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
+
+    // Create a new Auth Controller Instance
+    public function __construct()
+    {
+        $this->middleware('JWT', ['except' => ['index', 'show']]);
+    }
+    
     /**
      * Display a listing of the resource.
      *

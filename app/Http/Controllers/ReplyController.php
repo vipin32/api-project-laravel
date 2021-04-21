@@ -12,6 +12,13 @@ use App\Http\Resources\ReplyResource;
 
 class ReplyController extends Controller
 {
+
+    // Create a new Auth Controller Instance
+    public function __construct()
+    {
+        $this->middleware('JWT', ['except' => ['index', 'show']]);
+    }
+    
     /**
      * Display a listing of the resource.
      *

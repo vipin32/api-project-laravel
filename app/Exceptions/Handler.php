@@ -35,7 +35,30 @@ class Handler extends ExceptionHandler
     public function register()
     {
         $this->reportable(function (Throwable $e) {
-            //
+
+            // if($e instanceOf JWTException)
+            // {
+            //     return response(['error'=>'Token is not provided'], 400);
+            // }
         });
+    }
+
+    public function render($request, Throwable $exception)
+    {
+
+        if($exception instanceOf TokenBlacklistedException)
+        {
+            return response(['error'=>'Token cannot be used, get new token'], 400);
+        }
+        else if($exception instanceOf TokenInvalidException)
+        {
+            return response(['error'=>'Token is invalid'], 400);
+        }
+        else if($exception instanceOf JWTException)
+        {
+            return response(['error'=>'Token is not provided'], 400);
+        }
+
+        return parent::render($request, $exception);
     }
 }

@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class LikeController extends Controller
 {
+
+    // Create a new Auth Controller Instance
+    public function __construct()
+    {
+        $this->middleware('JWT');
+    }
+
     /**
      * Display a listing of the resource.
      *
